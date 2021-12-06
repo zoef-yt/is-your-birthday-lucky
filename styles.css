@@ -73,7 +73,9 @@ button {
 .link-active {
 	font-weight: bold;
 }
-
+.link {
+	text-decoration: none;
+}
 .list-non-bullet {
 	list-style-type: none;
 	margin-block-start: 0;

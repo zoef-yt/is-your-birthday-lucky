@@ -7,13 +7,19 @@ submit.addEventListener("click", submitButtonHandler);
 
 function submitButtonHandler() {
 	console.log("submit button clicked");
-	var sumOfDOB = calculateDateOfBirth();
-	if (sumOfDOB % luckyNumber.value === 0) {
-		console.log("lucky");
-		luckyMessage.innerText = "😉Congratulations! You are a lucky person!😎";
+	if (luckyNumber.value < 0 || luckyNumber.value == "") {
+		luckyMessage.style.color = "red";
+		luckyMessage.innerText = "Please enter a positive number";
 	} else {
-		console.log("unlucky");
-		luckyMessage.innerText = "🥲Sorry! You are not a lucky person!😔";
+		var sumOfDOB = calculateDateOfBirth();
+
+		if (sumOfDOB % luckyNumber.value === 0) {
+			luckyMessage.style.color = "green";
+			luckyMessage.innerText = "😉Congratulations! You are a lucky person!😎";
+		} else {
+			luckyMessage.style.color = "red";
+			luckyMessage.innerText = "🥲Sorry! You are not a lucky person!😔";
+		}
 	}
 }
 function calculateDateOfBirth() {
